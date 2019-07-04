@@ -101,7 +101,7 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
             }else{
                 imageChecker.image = UIImage(named: "false")
             }
-            _ = Timer.scheduledTimer(timeInterval: 8.0, target: self, selector: #selector(clearImage), userInfo: nil, repeats: false)
+            _ = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(clearImage), userInfo: nil, repeats: false)
         }
         return true
     }

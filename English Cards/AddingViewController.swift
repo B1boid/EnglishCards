@@ -27,9 +27,6 @@ class AddingViewController: UIViewController,UITextFieldDelegate {
         translationWord.delegate = self
         realm = try! Realm()
         successLabel.text = ""
-        for words in wordsArray{
-            print(words.engWord," ",words.tranWord,"\n")
-        }
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -37,11 +34,11 @@ class AddingViewController: UIViewController,UITextFieldDelegate {
             translationWord.becomeFirstResponder()
         }else {
             try! realm.write() {
-                let newWords = Words()
-                newWords.engWord = englishWord.text!
-                newWords.tranWord = translationWord.text!
-                newWords.levelOfStudying = 1
-                self.realm.add(newWords)
+                let newWord = Words()
+                newWord.engWord = englishWord.text!
+                newWord.tranWord = translationWord.text!
+                newWord.levelOfStudying = 1
+                self.realm.add(newWord)
                 englishWord.text = ""
                 translationWord.text = ""
                 successLabel.text = "Word added"

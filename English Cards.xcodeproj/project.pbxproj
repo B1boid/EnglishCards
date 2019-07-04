@@ -18,7 +18,6 @@
 		462D87EF22CBE83200A19E00 /* AddingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 462D87EE22CBE83200A19E00 /* AddingViewController.swift */; };
 		465F523022CBF58F00950F07 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465F522F22CBF58F00950F07 /* Words.swift */; };
 		46AA0FD622CD306300D00508 /* LearningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AA0FD522CD306300D00508 /* LearningViewController.swift */; };
-		46AA0FD822CD475F00D00508 /* SingletonDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AA0FD722CD475F00D00508 /* SingletonDataModel.swift */; };
 		6B3C48D2C48AE33DFCC29B72 /* Pods_English_CardsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055AB66117B9B2C2369F5A2E /* Pods_English_CardsTests.framework */; };
 		F28D6EAADC21632AC7F7C3C5 /* Pods_English_Cards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A4D2CD64DBE45CED41E94AB /* Pods_English_Cards.framework */; };
 /* End PBXBuildFile section */
@@ -60,7 +59,6 @@
 		462D87EE22CBE83200A19E00 /* AddingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingViewController.swift; sourceTree = "<group>"; };
 		465F522F22CBF58F00950F07 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		46AA0FD522CD306300D00508 /* LearningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningViewController.swift; sourceTree = "<group>"; };
-		46AA0FD722CD475F00D00508 /* SingletonDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonDataModel.swift; sourceTree = "<group>"; };
 		46CB9CE5FDBD8B010643B6FC /* Pods-English CardsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English CardsUITests.debug.xcconfig"; path = "Target Support Files/Pods-English CardsUITests/Pods-English CardsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6630B04F195889508B60D925 /* Pods-English CardsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-English CardsTests.debug.xcconfig"; path = "Target Support Files/Pods-English CardsTests/Pods-English CardsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D2CD64DBE45CED41E94AB /* Pods_English_Cards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_English_Cards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,7 +129,6 @@
 				462D87C922CBD81000A19E00 /* LaunchScreen.storyboard */,
 				462D87CC22CBD81000A19E00 /* Info.plist */,
 				465F522F22CBF58F00950F07 /* Words.swift */,
-				46AA0FD722CD475F00D00508 /* SingletonDataModel.swift */,
 			);
 			path = "English Cards";
 			sourceTree = "<group>";
@@ -399,7 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				462D87EF22CBE83200A19E00 /* AddingViewController.swift in Sources */,
-				46AA0FD822CD475F00D00508 /* SingletonDataModel.swift in Sources */,
 				465F523022CBF58F00950F07 /* Words.swift in Sources */,
 				46AA0FD622CD306300D00508 /* LearningViewController.swift in Sources */,
 				462D87C322CBD80E00A19E00 /* ViewController.swift in Sources */,

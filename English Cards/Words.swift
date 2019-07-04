@@ -12,3 +12,7 @@ class Words: Object {
     @objc dynamic var tranWord = ""
     @objc dynamic var levelOfStudying = 0
 }
+
+struct LevelOfLearning{
+    static var ID = 0
+}
