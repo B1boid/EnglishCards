@@ -16,7 +16,7 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
         if curArray.count > index {
             let synthesizer = AVSpeechSynthesizer()
             let utterance = AVSpeechUtterance(string:curArray[index].engWord)
-            utterance.voice = AVSpeechSynthesisVoice(language: "eng-ENG")
+            utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
             synthesizer.speak(utterance)
             secondWord.text = curArray[index].engWord
         }
