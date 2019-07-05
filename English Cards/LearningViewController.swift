@@ -8,12 +8,17 @@
 
 import UIKit
 import RealmSwift
+import AVKit
 
 class LearningViewController: UIViewController,UITextFieldDelegate {
 
     @IBAction func seeAnswerTouched(_ sender: Any) {
         if curArray.count > index {
-            secondWord.text = curArray[index].tranWord
+            let synthesizer = AVSpeechSynthesizer()
+            let utterance = AVSpeechUtterance(string:curArray[index].engWord)
+            utterance.voice = AVSpeechSynthesisVoice(language: "eng-ENG")
+            synthesizer.speak(utterance)
+            secondWord.text = curArray[index].engWord
         }
     }
     @IBAction func levelDownTouched(_ sender: Any) {
@@ -64,7 +69,7 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
         imageChecker.image = nil
         curArray.shuffle()
         if curArray.count > 0 {
-            firstWord.text = curArray[index].engWord
+            firstWord.text = curArray[index].tranWord
         }else{
             firstWord.text = "No words"
         }
@@ -77,7 +82,7 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
         if curArray.count <= index {
             firstWord.text = "No words"
         }else{
-            firstWord.text = curArray[index].engWord
+            firstWord.text = curArray[index].tranWord
         }
     }
     
@@ -95,8 +100,8 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         wordField.resignFirstResponder()
         if curArray.count > index {
-            if textField.text == curArray[index].tranWord {
-                secondWord.text = curArray[index].tranWord
+            if textField.text == curArray[index].engWord {
+                secondWord.text = curArray[index].engWord
                 imageChecker.image = UIImage(named: "true")
             }else{
                 imageChecker.image = UIImage(named: "false")
