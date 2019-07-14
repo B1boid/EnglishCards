@@ -1,6 +1,6 @@
 # EnglishCards
 
-Application for learning English words using virtual cards.
+Application for learning English words using the cards system.
 
 The main feature of the application is the analysis of the degree of learning by the user of words, the application itself decides when users have learned the word.
 
