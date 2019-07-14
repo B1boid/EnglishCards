@@ -11,21 +11,21 @@ import RealmSwift
 
 class AddingViewController: UIViewController,UITextFieldDelegate {
     
-    @IBOutlet weak var englishWord: UITextField!
-    @IBOutlet weak var translationWord: UITextField!
+    @IBOutlet var englishWord: UITextField!
+    @IBOutlet var translationWord: UITextField!
     
     @IBOutlet weak var successLabel: UILabel!
     
-    var realm : Realm!
+    var realm : Realm?
     
-    lazy var wordsArray: Results<Words> = { self.realm.objects(Words.self) }()
+    lazy var wordsArray: Results<Words> = { self.realm!.objects(Words.self) }()
    
     override func viewDidLoad() {
         super.viewDidLoad()
         englishWord.becomeFirstResponder()
         englishWord.delegate = self
         translationWord.delegate = self
-        realm = try! Realm()
+        realm = try? Realm()
         successLabel.text = ""
     }
 
@@ -33,12 +33,12 @@ class AddingViewController: UIViewController,UITextFieldDelegate {
         if textField == englishWord {
             translationWord.becomeFirstResponder()
         }else {
-            try! realm.write() {
+            try? realm!.write() {
                 let newWord = Words()
                 newWord.engWord = englishWord.text!
                 newWord.tranWord = translationWord.text!
                 newWord.levelOfStudying = 1
-                self.realm.add(newWord)
+                self.realm!.add(newWord)
                 englishWord.text = ""
                 translationWord.text = ""
                 successLabel.text = "Word added"

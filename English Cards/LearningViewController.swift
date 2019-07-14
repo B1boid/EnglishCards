@@ -21,17 +21,19 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
             secondWord.text = curArray[index].engWord
         }
     }
+    
     @IBAction func levelDownTouched(_ sender: Any) {
         if curArray.count > index && curArray[index].levelOfStudying > 1 {
             updateDB(value: -1)
         }
         updateUI()
     }
+    
     @IBAction func levelUpTouched(_ sender: Any) {
         if curArray.count > index {
             if curArray[index].levelOfStudying == 4 {
-                try! realm.write() {
-                    realm.delete(curArray[index])
+                try? realm!.write() {
+                    realm!.delete(curArray[index])
                 }
             }else{
                 updateDB(value: 1)
@@ -50,19 +52,20 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var wordField: UITextField!
     
     
-    var realm : Realm!
+    var realm : Realm?
     
-    lazy var wordsArray: Results<Words> = { self.realm.objects(Words.self) }()
+    lazy var wordsArray: Results<Words> = { self.realm!.objects(Words.self) }()
     
     var curArray:[Words] = []
     var index = 0
+    var levelOfStudying:Int?
     
     override func viewDidLoad() {
         wordField.becomeFirstResponder()
         wordField.delegate = self
-        realm = try! Realm()
+        realm = try? Realm()
         for words in wordsArray{
-            if words.levelOfStudying == LevelOfLearning.ID || LevelOfLearning.ID == 5 {
+            if words.levelOfStudying == levelOfStudying || levelOfStudying == 5 {
                 curArray.append(words)
             }
         }
@@ -87,19 +90,19 @@ class LearningViewController: UIViewController,UITextFieldDelegate {
     }
     
     func updateDB(value:Int) {
-        try! realm.write() {
+        try? realm!.write() {
             let newWord = Words()
             newWord.engWord = curArray[index].engWord
             newWord.tranWord = curArray[index].tranWord
             newWord.levelOfStudying = curArray[index].levelOfStudying + value
-            realm.delete(curArray[index])
-            realm.add(newWord)
+            realm!.delete(curArray[index])
+            realm!.add(newWord)
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         wordField.resignFirstResponder()
-        if curArray.count > index {
+        if (textField.text?.count)! > 0 && curArray.count > index {
             if textField.text == curArray[index].engWord {
                 secondWord.text = curArray[index].engWord
                 imageChecker.image = UIImage(named: "true")

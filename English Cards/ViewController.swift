@@ -11,35 +11,46 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var buttonLevelId:Int?
     
-    @IBAction func superNewTouched(_ sender: Any) {
-        LevelOfLearning.ID = 1
-        openLearningScene()
-    }
-    @IBAction func newTouched(_ sender: Any) {
-        LevelOfLearning.ID = 2
-        openLearningScene()
-    }
-    @IBAction func inProgressTouched(_ sender: Any) {
-        LevelOfLearning.ID = 3
-        openLearningScene()
-    }
-    @IBAction func almostLearningTouched(_ sender: Any) {
-        LevelOfLearning.ID = 4
-        openLearningScene()
-    }
-    @IBAction func allWordsTouched(_ sender: Any) {
-         LevelOfLearning.ID = 5
-         openLearningScene()
+    @IBAction func buttonSuperNewTouched(_ sender: Any) {
+        buttonLevelId = 1
+        performSegue(withIdentifier: "ShowLearningScene", sender: nil)
     }
     
-
-    func openLearningScene(){
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let learningViewController = storyBoard.instantiateViewController(withIdentifier: "learningControllerID") as! LearningViewController
-        self.present(learningViewController, animated: true, completion: nil)
+    @IBAction func buttonNewTouched(_ sender: Any) {
+        buttonLevelId = 2
+        performSegue(withIdentifier: "ShowLearningScene", sender: nil)
     }
     
+    @IBAction func buttonInProgressTouched(_ sender: Any) {
+        buttonLevelId = 3
+        performSegue(withIdentifier: "ShowLearningScene", sender: nil)
+    }
+    
+    @IBAction func buttonAlmostLearnedTouched(_ sender: Any) {
+        buttonLevelId = 4
+        performSegue(withIdentifier: "ShowLearningScene", sender: nil)
+    }
+    
+    @IBAction func buttonAllWordsTouched(_ sender: Any) {
+        buttonLevelId = 5
+        performSegue(withIdentifier: "ShowLearningScene", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? LearningViewController, segue.identifier == "ShowLearningScene" {
+            controller.levelOfStudying = buttonLevelId
+        }
+    }
+    
+//
+//    func openLearningScene(){
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let learningViewController = storyBoard.instantiateViewController(withIdentifier: "learningControllerID") as! LearningViewController
+//        self.present(learningViewController, animated: true, completion: nil)
+//    }
+//
     
     override func viewDidLoad() {
         super.viewDidLoad()
