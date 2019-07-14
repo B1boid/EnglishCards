@@ -10,6 +10,6 @@ An app uses local database RealmSwift.
 
 Here are a couple of screenshots.
 
-![Screen1](https://github.com/B1boid/EnglishCards/raw/master/screen1.png)
+![Screen1](https://github.com/B1boid/EnglishCards/raw/master/screen1.1.png)
 
-![Screen2](https://github.com/B1boid/EnglishCards/raw/master/screen2.png)
+![Screen2](https://github.com/B1boid/EnglishCards/raw/master/screen1.2.png)
